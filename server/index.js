@@ -25,6 +25,7 @@ app.use(morgan("common"))
 app.use(bodyParser.json({limit:"30mb" , extended:true}));
 app.use(bodyParser.urlencoded({limit:"30mb"}))
 app.use(cors());
+import authRoutes from './Routes/auth.js'
 app.use("/assets", express.static(path.join(__dirname, 'public/assests')));
 // set the directory of where we are keeping the assests we are storing here locally , 
 // but in real life -> cloud storage 
@@ -45,6 +46,8 @@ const upload= multer ({storage})
 // auth
 app.post("/auth/register", upload.single("picture"), register)
 
+
+app.use("/auth", authRoutes)
 
 
 
