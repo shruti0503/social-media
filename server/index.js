@@ -12,6 +12,7 @@ import morgan from "morgan"
 import path from "path"
 import { fileURLToPath } from "url"
 import { register } from "module"
+import userRoutes from './routes/users.js'
 
 // only when we use the type modules
 const __filename=fileURLToPath(import.meta.url)
@@ -48,6 +49,7 @@ app.post("/auth/register", upload.single("picture"), register)
 
 
 app.use("/auth", authRoutes)
+app.use("/users", userRoutes)
 
 
 
