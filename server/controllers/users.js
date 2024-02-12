@@ -1,6 +1,7 @@
 import User from "./modals/user";
 
 // read 
+// file
 export const getUser =async(req, res)=>{
 
     try{
