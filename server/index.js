@@ -13,6 +13,8 @@ import path from "path"
 import { fileURLToPath } from "url"
 import { register } from "module"
 import userRoutes from './routes/users.js'
+import postRoutes from './routes/posts.js'
+import createPost from './controllers/posts.js'
 
 // only when we use the type modules
 const __filename=fileURLToPath(import.meta.url)
@@ -27,6 +29,7 @@ app.use(bodyParser.json({limit:"30mb" , extended:true}));
 app.use(bodyParser.urlencoded({limit:"30mb"}))
 app.use(cors());
 import authRoutes from './Routes/auth.js'
+import { verifyToken } from "./middleware/auth.js"
 app.use("/assets", express.static(path.join(__dirname, 'public/assests')));
 // set the directory of where we are keeping the assests we are storing here locally , 
 // but in real life -> cloud storage 
@@ -45,8 +48,15 @@ const storage=multer.diskStorage({
 const upload= multer ({storage})
 
 // auth
+// routes with pictiure
+// upload.single("picture") means grabbing the picture property
 app.post("/auth/register", upload.single("picture"), register)
+app.post("/posts", verifyToken, upload.single("picture"), createPost)
 
+
+
+// routes
+app.use("/posts",postRoutes)
 
 app.use("/auth", authRoutes)
 app.use("/users", userRoutes)
