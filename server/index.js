@@ -12,6 +12,8 @@ import morgan from "morgan"
 import path from "path"
 import { fileURLToPath } from "url"
 import { register } from "module"
+import User from "./controllers/modals/user.js"
+import Post from "./controllers/modals/posts.js"
 import userRoutes from './routes/users.js'
 import postRoutes from './routes/posts.js'
 import createPost from './controllers/posts.js'
