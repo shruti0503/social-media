@@ -30,6 +30,7 @@ export const colorTokens = {
   };
   
   // mui theme settings
+  //set default colours
   export const themeSettings = (mode) => {
     return {
       palette: {
