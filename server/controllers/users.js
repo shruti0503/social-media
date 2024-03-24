@@ -6,11 +6,13 @@ export const getUser =async(req, res)=>{
 
     try{
         const {id}=req.params;
+        console.log("id is", id)
         const user =await User.findById(id);
         res.status(200).json(user);
 
     }
     catch(err){
+      console.log(err)
         res.status(404).json({message})
     }
 }
@@ -92,6 +94,7 @@ export const addRemoveFriend= async(req,res)=>{
     
   }
   catch(err){
+    console.log(err)
     res.status(404).json({message:err.message})
 
   }

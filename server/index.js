@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({limit:"30mb"}))
 app.use(cors());
 import authRoutes from './Routes/auth.js'
 import { verifyToken } from "./middleware/auth.js"
-app.use("/assets", express.static(path.join(__dirname, 'public/assests')));
+app.use("/assets", express.static(path.join(__dirname, 'public/assets')));
 // set the directory of where we are keeping the assests we are storing here locally , 
 // but in real life -> cloud storage 
 
