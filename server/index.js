@@ -11,12 +11,12 @@ import helmet from "helmet"
 import morgan from "morgan"
 import path from "path"
 import { fileURLToPath } from "url"
-import { register } from "module"
+import { register } from "./controllers/auth.js"
 import User from "./controllers/modals/user.js"
 import Post from "./controllers/modals/posts.js"
 import userRoutes from './routes/users.js'
 import postRoutes from './routes/posts.js'
-import createPost from './controllers/posts.js'
+import {createPost} from './controllers/posts.js'
 
 // only when we use the type modules
 const __filename=fileURLToPath(import.meta.url)

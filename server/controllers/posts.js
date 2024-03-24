@@ -1,5 +1,5 @@
-import Post from "./modals/posts";
-import User from "./modals/user";
+import Post from "./modals/posts.js";
+import User from "./modals/user.js";
 
 // create ppost 
 export const createPost = async(req,res)=>{
@@ -41,7 +41,7 @@ export const getFeedPosts=async(req, res)=>{
 
 }
 
-export const getUserFeedPosts=async(req, res)=>{
+export const getUserPosts=async(req, res)=>{
     try{
         const {userId}=req.params;
         const posts=await Post.find({userId});

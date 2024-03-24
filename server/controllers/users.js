@@ -1,4 +1,4 @@
-import User from "./modals/user";
+import User from "./modals/user.js";
 
 // read 
 // file

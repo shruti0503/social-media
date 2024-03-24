@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
-import  User  from "./modals/user"
-import User from "./modals/user"
+import  User  from "./modals/user.js"
+
 
 // register user
 export const register=async(req, res)=>{
